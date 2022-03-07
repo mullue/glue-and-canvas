@@ -99,7 +99,7 @@
 1. `storeid` 컬럼을 추가합니다. (이후 SageMaker Canvas에서 시계열 데이터 예측모델 생성시 예측단위로 활용됩니다.)
     - FUNCTIONS 메뉴에서 Text functions > CHAR 를 선택합니다.
     - ![](images/storeid-menu.png)
-    - Value using을 Custom value로 선택하고 1 을 입력합니다.
+    - Value using을 Custom value로 선택하고 49 를 입력합니다. (유니코드 49의 값은 '1'입니다.)
     - ![](images/storeid-detail.png)
 1. (옵션) `season` 컬럼에 대하여 one-hot encoding을 실행합니다. (본 실습에서는 기능 확인을 위해 진행합니다. SageMaker Canvas 사용시 one-hot encoding이 자동으로 적용되므로 실제 작업에서는 본 단계가 필요하지 않습니다.)
     - 메뉴에서 ENCODE > One-hot encode column을 선택합니다.
@@ -210,4 +210,9 @@
     - 데이터셋 컬럼에서 다음 컬럼을 선택합니다. 
         - `workingday`, `storeid`, `holiday`, `datetime` 선택 
         - ![](images/canvas-ts-build.png)
-    - Standard Build 버튼을 클릭합니다. (작업은 4~5시간 정도 소요됩니다.)
+    - Standard Build 버튼을 클릭합니다. (작업은 2~5시간 정도 소요됩니다.)
+1. 모델 빌드 결과를 확인하고 예측을 실행합니다.
+    - 빌드가 완료되면 WAPE (Weighted Average Percentage Error)로 매트릭이 표시됩니다.
+    - ![](images/canvas-ts-wape.png)
+    - Predict 탭으로 이동하여 Start predict를 클릭하면 배치 예측결과를 생성할 수 있습니다.
+    - ![](images/canvas-ts-batch-predict.png)
