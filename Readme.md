@@ -32,11 +32,11 @@
 ### 1-2. AWS Glue DataBrew 환경준비
 1. UCI 사이트에 접속하고 [데이터셋](https://archive.ics.uci.edu/ml/machine-learning-databases/00275/Bike-Sharing-Dataset.zip)을 다운로드 받아 로컬 PC에 저장하고 압축을 해제합니다.
 1. 고유한 이름의 S3 버킷을 생성하고 다운받은 파일 중 `hour.csv`파일을 업로드합니다.
-    - S3 콘솔(https://console.aws.amazon.com/s3)로 이동한 후 Create bucket 버튼을 클릭하고 버킷을 생성합니다.
+    - [S3 콘솔](https://console.aws.amazon.com/s3)로 이동한 후 Create bucket 버튼을 클릭하고 버킷을 생성합니다.
     - 버킷명 샘플 : `databrew-lab-<<your unique id>>`
     - 생성된 버킷을 클릭하고 Upload 버튼을 클릭한 후 드래그 & 드랩으로 파일을 업로드합니다.
 1. AWS Glue Databrew 데이터셋을 생성합니다.
-    - AWS Glue DataBrew 콘솔(https://console.aws.amazon.com/databrew/)로 이동합니다.
+    - [AWS Glue DataBrew 콘솔](https://console.aws.amazon.com/databrew/)로 이동합니다.
     - 왼쪽 메뉴에서 DATASETS 선택 후 Create new dataset 버튼을 클릭합니다.
     - Amazon S3를 선택하고 이전 단계에서 생성한 버킷을 선택하고 그 아래 단계에서 `hour.csv`파일을 선택합니다.
     - ![](images/new-dataset.png) 
@@ -139,7 +139,7 @@
 
 ### 2-1. Amazon Sagemaker Canvas 데이터셋 준비
 
-1. SageMaker 콘솔(https://console.aws.amazon.com/sagemaker/)로 이동하고 SageMaker Canvas를 실행합니다. (최초 실행시 수분 정도가 소요됩니다.)
+1. [SageMaker 콘솔](https://console.aws.amazon.com/sagemaker/)로 이동하고 SageMaker Canvas를 실행합니다. (최초 실행시 수분 정도가 소요됩니다.)
     - ![](images/canvas-launch.png)
 1. Datasets 메뉴에서 Import 버튼을 클릭합니다.
     - ![](images/canvas-dataset.png)
@@ -169,9 +169,9 @@
     
 ### 2-3. Timeseries 예측모델 실행
 1. 다음은 동일 파일을 사용하여 Timeseries 에측모델을 생성합니다. Timesereis 예측실행을 위해서 IAM 권한 수정이 필요합니다.
-    - SageMaker 콘솔(https://console.aws.amazon.com/sagemaker)로 이동한 후 SageMaker Domain > Studio 메뉴에서 Execution role 이름을 확인하고 기억합니다.(또는 복사합니다.)
+    - [SageMaker 콘솔](https://console.aws.amazon.com/sagemaker)로 이동한 후 SageMaker Domain > Studio 메뉴에서 Execution role 이름을 확인하고 기억합니다.(또는 복사합니다.)
     - ![](images/sm-exec-role.png)
-    - IAM 콘솔(https://console.aws.amazon.com/iamv2)로 이동한 후 Roles 메뉴에서 이전 단계에서 조회한 Role을 찾습니다. (대부분의 경우 `SageMakerExecutrionRole`.. 을 포함하는 이름입니다.)
+    - [IAM 콘솔](https://console.aws.amazon.com/iamv2)로 이동한 후 Roles 메뉴에서 이전 단계에서 조회한 Role을 찾습니다. (대부분의 경우 `SageMakerExecutrionRole`.. 을 포함하는 이름입니다.)
     - ![](images/sm-exec-role-iam.png)
     - IAM Role의 Permissions 탭에서 Add permissions 버튼을 클릭하고 Attach policies를 선택합니다.
     - Other permissions policies 항목에서 AmazonForecastFullAccess를 검색하여 추가합니다. (체크박스 선택 후 Attach policies 버튼을 클릭합니다.)
