@@ -216,3 +216,4 @@
     - ![](images/canvas-ts-wape.png)
     - Predict 탭으로 이동하여 Start predict를 클릭하면 배치 예측결과를 생성할 수 있습니다.
     - ![](images/canvas-ts-batch-predict.png)
+    - ![](images/canvas-ts-single-predict.png)
